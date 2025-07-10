@@ -1,0 +1,96 @@
+# Graphical user interface with tkinter and function argument
+# TODO-1: HOW DO WE CREATE LABEL
+# TODO-2: how doe we create button while if i click the button the button should be work
+# TODO-3: how do we create a output box if i insert a dat that should be work
+
+# Default argument in python
+#TODO what is *args
+# It mean positional argument
+# Unlimited arguments
+# def add(n1, n2):
+#     return n1+n2
+# add(n1=5, n2=3)
+# ---------------------------------------------------------------------------------------------------------------
+# def add(*args): by this way can use unlimited arguments
+#   for n in args:
+#       print(n)
+# * is mean add any number of argument do whatever we can --> add(we can add unlimited number) in this argument
+# ---------------------------------------------------------------------------------------------------------------
+# what is **kwargs
+# It mean keyword argument like dictionary
+# def add(**kwargs): by this way can use unlimited arguments
+#   for n in args:
+#       print(n)
+# ---------------------------------------------------------------------------------------------------------------
+
+# How do create a miles to km convert using this module
+# gui python cmd,calculator or any other gui in real world example
+# everything that we are seeing visually is called gui
+# Refer tkinter there are lots of key is in there
+# movie pirates of the silicon's vally refers all old computer parts how it look like
+
+from tkinter import *
+
+# button option
+def button_clicked():
+    print("I clicked the button")
+    new_text = input.get() # inside the entry box the new typing info given by us has been come
+    my_label.config(text=new_text) # it will replacing wow! text if we click the button
+
+window = Tk()
+window.title("FIRST GUI PROGRAM")
+window.minsize(width=500, height=300) # to increase the size of the screen
+window.config(padx=100, pady=200)#to align 100x200 space in all box shape edges it means add more space for our code
+
+# label
+my_label = Label(text="This is a label", font=("Arial", 24, "bold"))
+my_label.config(text="New Text")
+my_label.grid(column=0, row=0)
+my_label.config(padx=50, pady=50)
+#my_label.pack()# this will automatically place the label in center of the screen
+# side="left",bottom,expand=True can use any key words like this
+#advanced argument in python
+# my_function(c=2,a=1,b=3) keyword argument 3 argument was in there we have to return 3 argument as well
+#my_label['text'] = 'WOW!'
+#my_label.config(text='WOW!') # replacing this instead of this "This is a label"
+#my_label.pack()
+
+# button
+button = Button(text="Click Me", command=button_clicked)
+button.grid(column=1, row=1)
+
+new_button = Button(text="New Button")
+new_button.grid(column=2, row=0)
+
+# ENTRY for credentials
+input = Entry(width=12)# creates an box like login credentials and width of the box is 12
+print(input.get())
+input.grid(column=3, row=2)
+
+#Tkinter other method
+#1- scale it look like scrolling or slider
+#2- spinbox it look like inside a box there was an up and down button
+#we can use to increase number or decrease number it's called scale
+#3- checkbutton for tick mark inside the button
+#4- radiobutton to select option1 box or option2 box or option3 box
+#5- listbox choices which one we can pick from that
+# these are the widget in tkinter
+#keywords
+#TODO-1: pack() this code start from beginning at the center after it will display button pack() and entry pack()
+#               1 after 1it will run but we can able to change it direction were it should be displayed but the
+#               problem is this button has to come little bit up and another will com little bit down very complicated to do with pack key.
+#TODO-2: place() is all about precise positioning by providing X and Y axis coordinates we can place it in any place in screen
+#TODO-3: grid() it image our entire program as a grid |------|------|------| it's look like a grid
+# we can divide into any number of column and rows    |label |      |      |
+# Row in horizontal column in vertical                |------|------|------|
+# eg: column = 0 , row = 0 it will place in top       |      |button|      |
+# of left corner                                      |------|------|------|
+# eg: column = 2 , row = 2 it will place on top  in   |      |      |entry |
+# center top place                                    |------|------|------| like this
+
+# import turtle
+#
+# t = turtle.Turtle()
+# t.write("write any text") # we can able to write "write any text" in turtle
+
+window.mainloop() # it will keep the scree until we close it
