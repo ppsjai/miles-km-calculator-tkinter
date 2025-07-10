@@ -1,0 +1,51 @@
+# Define *args
+def add(*args):
+    for n in args:
+        print(n)
+        print(type(n))
+add(12+13*2-31/2) # it contains unlimited number
+# for this purpose we are using argument
+# or this way
+def add1(*args):
+    print(args[1])
+    sum = 0
+    for n1 in args:
+        sum += 1
+    return sum
+print(add1(12, 13, 2, 31, 2))
+
+# TODO **kwargs
+def calculate(**kwargs):
+    #print(type(kwargs))
+    print(kwargs)
+#     for key, value in kwargs.items():
+#         print(key)
+#         print(value)
+    print(kwargs["add"])
+calculate(add=12, multiply=2, subtract=31, divide=2)
+
+def calculate1(**kwargs):
+    print(kwargs)
+    n = kwargs['start'] # we have to start with this argument first we have to assume a value for n
+    n += kwargs['add']
+    n *= kwargs['multiply']
+    n -= kwargs["subtract"]
+    n /= kwargs["divide"]
+    print(n)
+
+calculate1(start=2, add=12, multiply=2, subtract=31, divide=2)
+
+class bike:
+
+    def __init__(self, **kw):
+        self.make = kw.get('make')
+        self.model = kw.get('model')
+        self.color = kw.get('white')
+        self.seat = kw.get('seat')
+# if there are no value for a key also run by using this get method
+# cause wa have not mentioned color itself that's the reason cause it's showing none
+my_bike = bike(make='bmw', model='GT-360', seat='seat', color='white')
+print(my_bike.make)
+print(my_bike.model)
+print(my_bike.color)
+print(my_bike.seat)
